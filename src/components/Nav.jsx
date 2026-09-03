@@ -3,12 +3,14 @@
 import { useState, useEffect } from 'react'
 
 const CALENDLY_DEMO = 'https://calendly.com/plusdimension-ohio/30min'
+const CONTACT_EMAIL = 'mailto:plusdimension.ohio@gmail.com?subject=Seltrix%20Inquiry'
 
 const navItems = [
   { label: 'Features', href: '#features' },
   { label: 'How It Works', href: '#how-it-works' },
   { label: 'Pricing', href: '#pricing' },
   { label: 'FAQ', href: '#faq' },
+  { label: 'Contact Us', href: CONTACT_EMAIL },
 ]
 
 export default function Nav({ onPreorder }) {
@@ -39,7 +41,7 @@ export default function Nav({ onPreorder }) {
         </a>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden lg:flex items-center gap-1">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -52,7 +54,7 @@ export default function Nav({ onPreorder }) {
         </div>
 
         {/* Desktop CTA */}
-        <div className="hidden md:flex items-center gap-2">
+        <div className="hidden lg:flex items-center gap-2">
           <a
             href={CALENDLY_DEMO}
             target="_blank"
@@ -76,7 +78,7 @@ export default function Nav({ onPreorder }) {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden p-2 -mr-2 text-zinc-400 hover:text-white transition-colors"
+          className="lg:hidden p-2 -mr-2 text-zinc-400 hover:text-white transition-colors"
           aria-label="Toggle menu"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -91,7 +93,7 @@ export default function Nav({ onPreorder }) {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-white/[0.06] bg-[#08080a]/95 backdrop-blur-xl">
+        <div className="lg:hidden border-t border-white/[0.06] bg-[#08080a]/95 backdrop-blur-xl">
           <div className="px-6 py-4 space-y-1">
             {navItems.map((item) => (
               <a

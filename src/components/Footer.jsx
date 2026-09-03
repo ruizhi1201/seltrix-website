@@ -33,7 +33,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li><span className="text-sm text-zinc-600">About (coming soon)</span></li>
               <li><span className="text-sm text-zinc-600">Blog (coming soon)</span></li>
-              <li><a href="https://form.jotform.com/262158097289167" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">Contact</a></li>
+              <li><a href="mailto:plusdimension.ohio@gmail.com?subject=Seltrix%20Inquiry" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">Contact Us</a></li>
             </ul>
           </div>
 
