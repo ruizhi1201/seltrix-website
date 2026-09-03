@@ -5,6 +5,7 @@ import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
 const STRIPE_CHECKOUT = 'https://buy.stripe.com/eVq4gy0Iq0nV7Yq0dq2Ry01'
+const GOOGLE_FORM_RESPONSE = 'https://docs.google.com/forms/d/e/1FAIpQLSedYlqDy-t5bCV23ye0CHL_LUID_0k5-JFjn-h7jryxypCAUg/formResponse'
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('restaurant')
@@ -621,14 +622,23 @@ function PreorderModal({ onClose }) {
     setSubmitError('')
 
     try {
-      const response = await fetch('/api/preorder', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+      const googleFormData = new URLSearchParams({
+        'entry.1963081915': formData.industry,
+        'entry.1217708066': formData.contactName.trim(),
+        'entry.494353703': formData.contactPhone.trim(),
+        'entry.1984274598': formData.contactEmail.trim(),
+        'entry.403668169': formData.zipcode.trim(),
+        'entry.359725723': formData.address.trim(),
+        'entry.1806791562': formData.installationService === 'Self Install' ? 'Self Install' : 'Technician Install',
+        fvv: '1',
+        pageHistory: '0',
       })
-      const result = await response.json()
 
-      if (!response.ok) throw new Error(result.error)
+      await fetch(GOOGLE_FORM_RESPONSE, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: googleFormData,
+      })
 
       sessionStorage.setItem('seltrix-preorder', JSON.stringify(formData))
       window.location.assign(STRIPE_CHECKOUT)
