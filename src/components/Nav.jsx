@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react'
 
+const CALENDLY_DEMO = 'https://calendly.com/plusdimension-ohio/30min'
+
 const navItems = [
   { label: 'Features', href: '#features' },
   { label: 'How It Works', href: '#how-it-works' },
@@ -50,7 +52,15 @@ export default function Nav({ onPreorder }) {
         </div>
 
         {/* Desktop CTA */}
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-2">
+          <a
+            href={CALENDLY_DEMO}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-4 py-2 rounded-lg border border-white/10 text-zinc-300 text-sm font-medium hover:border-white/20 hover:text-white transition-colors"
+          >
+            Schedule a Demo
+          </a>
           <button
             type="button"
             onClick={onPreorder}
@@ -93,6 +103,15 @@ export default function Nav({ onPreorder }) {
                 {item.label}
               </a>
             ))}
+            <a
+              href={CALENDLY_DEMO}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="block px-3 py-2.5 rounded-lg text-zinc-300 hover:text-white hover:bg-white/[0.04] transition-colors"
+            >
+              Schedule a Demo
+            </a>
             <button
               type="button"
               onClick={() => {

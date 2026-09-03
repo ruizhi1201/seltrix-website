@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 
 const STRIPE_CHECKOUT = 'https://buy.stripe.com/eVq4gy0Iq0nV7Yq0dq2Ry01'
 const GOOGLE_FORM_RESPONSE = 'https://docs.google.com/forms/d/e/1FAIpQLSedYlqDy-t5bCV23ye0CHL_LUID_0k5-JFjn-h7jryxypCAUg/formResponse'
+const CALENDLY_DEMO = 'https://calendly.com/plusdimension-ohio/30min'
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('restaurant')
@@ -77,9 +78,9 @@ function Hero({ onPreorder }) {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </button>
-          <a href="#platform"
+          <a href={CALENDLY_DEMO} target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-white/10 text-zinc-300 font-medium hover:border-white/20 hover:text-white transition-all">
-            See how it works
+            Schedule a Demo
           </a>
         </div>
 
