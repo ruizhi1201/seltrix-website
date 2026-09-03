@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1024" viewBox="0 0 1536 1024">
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="1" stop-color="#0a0f1c"/>
+    </linearGradient>
+    <linearGradient id="sceneA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#172554"/><stop offset="1" stop-color="#312e81"/>
+    </linearGradient>
+    <linearGradient id="sceneB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#064e3b"/><stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="sceneC" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#78350f"/><stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#020617" flood-opacity="0.24"/>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+    <clipPath id="listThumb1"><rect x="376" y="374" width="72" height="53" rx="8"/></clipPath>
+    <clipPath id="listThumb2"><rect x="376" y="456" width="72" height="53" rx="8"/></clipPath>
+    <clipPath id="listThumb3"><rect x="376" y="538" width="72" height="53" rx="8"/></clipPath>
+    <clipPath id="listThumb4"><rect x="376" y="620" width="72" height="53" rx="8"/></clipPath>
+    <clipPath id="listThumb5"><rect x="376" y="702" width="72" height="53" rx="8"/></clipPath>
+    <clipPath id="actionThumb1"><rect x="1147" y="379" width="116" height="82" rx="8"/></clipPath>
+    <clipPath id="actionThumb2"><rect x="1147" y="558" width="116" height="82" rx="8"/></clipPath>
+    <clipPath id="actionThumb3"><rect x="1147" y="737" width="116" height="82" rx="8"/></clipPath>
+    <style>
+      .font{font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+      .muted{fill:#94a3b8}.dim{fill:#64748b}.white{fill:#f8fafc}.label{font-size:14px;font-weight:600}.small{font-size:12px}.body{font-size:15px}.title{font-weight:700}
+    </style>
+  </defs>
+
+  <rect width="1536" height="1024" fill="#f8fafc"/>
+  <circle cx="1430" cy="80" r="120" fill="#dbeafe" opacity=".55" filter="url(#soft)"/>
+  <circle cx="1270" cy="60" r="95" fill="#ede9fe" opacity=".7" filter="url(#soft)"/>
+
+  <g class="font">
+    <text x="40" y="74" fill="#0f172a" font-size="50" font-weight="760" letter-spacing="-1.5">Know Everything. Be Anywhere.</text>
+    <text x="40" y="128" fill="#334155" font-size="23">Seltrix watches your restaurant all day and delivers an honest, evidence-backed summary.</text>
+  </g>
+
+  <rect x="26" y="184" width="1484" height="814" rx="22" fill="#080d17" filter="url(#shadow)"/>
+  <rect x="27" y="185" width="1482" height="812" rx="21" fill="none" stroke="#334155" stroke-opacity=".62"/>
+
+  <g class="font">
+    <!-- App chrome -->
+    <rect x="27" y="185" width="1482" height="66" rx="21" fill="#0c1321"/>
+    <rect x="27" y="228" width="1482" height="23" fill="#0c1321"/>
+    <line x1="27" y1="251" x2="1509" y2="251" stroke="#253047"/>
+    <rect x="48" y="201" width="35" height="35" rx="10" fill="url(#brand)"/>
+    <text x="65.5" y="226" text-anchor="middle" fill="white" font-size="20" font-weight="800">S</text>
+    <text x="96" y="225" class="white" font-size="18" font-weight="720">SELTRIX</text>
+    <text x="180" y="225" class="dim" font-size="12" letter-spacing="1.3">VISUAL STORE MANAGER</text>
+    <circle cx="1344" cy="218" r="5" fill="#22c55e"/>
+    <text x="1357" y="223" class="muted" font-size="13">4 cameras online</text>
+    <circle cx="1472" cy="218" r="16" fill="#1e293b"/>
+    <path d="M1464 220h16M1466 215h12" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Left rail -->
+    <rect x="47" y="271" width="270" height="704" rx="16" fill="#0d1422" stroke="#263248"/>
+    <text x="67" y="304" class="dim small" font-weight="700" letter-spacing="1.2">TUESDAY, SEPTEMBER 2</text>
+    <text x="67" y="342" class="white" font-size="24" font-weight="740">Daily Store Summary</text>
+
+    <rect x="67" y="365" width="230" height="104" rx="14" fill="#1a1720" stroke="#92400e" stroke-opacity=".65"/>
+    <circle cx="91" cy="394" r="10" fill="#f59e0b"/>
+    <path d="M91 388v7M91 401h.01" stroke="#111827" stroke-width="2.4" stroke-linecap="round"/>
+    <text x="110" y="400" fill="#fbbf24" font-size="16" font-weight="720">Attention Needed</text>
+    <text x="87" y="428" class="muted" font-size="13">2 items need your review</text>
+    <text x="87" y="450" fill="#cbd5e1" font-size="12">Generated at 11:15 PM</text>
+
+    <text x="67" y="510" class="dim small" font-weight="700" letter-spacing="1.2">TODAY</text>
+    <rect x="59" y="525" width="246" height="48" rx="11" fill="#172554" stroke="#3b82f6" stroke-opacity=".55"/>
+    <path d="M77 540h18v18H77zM81 544h10M81 549h10M81 554h6" fill="none" stroke="#60a5fa" stroke-width="1.6" stroke-linecap="round"/>
+    <text x="108" y="555" fill="#dbeafe" font-size="14" font-weight="650">Summary</text>
+    <path d="M77 594h18M77 601h12M77 608h15" stroke="#64748b" stroke-width="1.8" stroke-linecap="round"/>
+    <text x="108" y="605" class="muted" font-size="14">Timeline</text>
+    <rect x="77" y="633" width="18" height="14" rx="2" fill="none" stroke="#64748b" stroke-width="1.7"/>
+    <path d="M82 633v-3h8v3M83 640l3-2 4 4" fill="none" stroke="#64748b" stroke-width="1.5" stroke-linecap="round"/>
+    <text x="108" y="645" class="muted" font-size="14">Evidence Clips</text>
+
+    <line x1="67" y1="683" x2="297" y2="683" stroke="#253047"/>
+    <text x="67" y="718" class="dim small" font-weight="700" letter-spacing="1.2">STORE HEALTH</text>
+    <text x="67" y="752" class="muted" font-size="13">Camera coverage</text><text x="280" y="752" text-anchor="end" fill="#86efac" font-size="13" font-weight="650">98%</text>
+    <rect x="67" y="763" width="213" height="5" rx="3" fill="#1e293b"/><rect x="67" y="763" width="209" height="5" rx="3" fill="#22c55e"/>
+    <text x="67" y="801" class="muted" font-size="13">Observed events</text><text x="280" y="801" text-anchor="end" class="white" font-size="13" font-weight="650">128</text>
+    <text x="67" y="836" class="muted" font-size="13">Evidence clips</text><text x="280" y="836" text-anchor="end" class="white" font-size="13" font-weight="650">7</text>
+
+    <rect x="67" y="895" width="230" height="54" rx="12" fill="#111827" stroke="#334155"/>
+    <circle cx="92" cy="922" r="15" fill="#1e293b"/>
+    <path d="M85 922h14M92 915v14" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="116" y="919" class="white" font-size="13" font-weight="650">Ask Seltrix</text>
+    <text x="116" y="937" class="dim" font-size="11">Follow up on today</text>
+
+    <!-- Main summary -->
+    <rect x="337" y="271" width="756" height="704" rx="16" fill="url(#panel)" stroke="#263248"/>
+    <text x="363" y="312" class="white" font-size="25" font-weight="740">What Seltrix Saw Today</text>
+    <text x="363" y="339" class="muted" font-size="14">A one-minute briefing of the moments that mattered.</text>
+    <rect x="932" y="292" width="134" height="34" rx="17" fill="#172554" stroke="#3b82f6" stroke-opacity=".6"/>
+    <circle cx="951" cy="309" r="5" fill="#60a5fa"/><text x="963" y="314" fill="#bfdbfe" font-size="12" font-weight="650">98% coverage</text>
+
+    <!-- Summary rows -->
+    <rect x="363" y="365" width="704" height="71" rx="12" fill="#101a2a" stroke="#243047"/>
+    <image href="daily-summary-thumbs/opening.png" x="376" y="374" width="72" height="53" preserveAspectRatio="xMidYMid slice" clip-path="url(#listThumb1)"/>
+    <rect x="376" y="374" width="72" height="53" rx="8" fill="#020617" opacity=".12"/>
+    <circle cx="412" cy="401" r="10" fill="#020617" opacity=".8"/><path d="M409 396l8 5-8 5z" fill="#f8fafc"/>
+    <circle cx="441" cy="381" r="5" fill="#22c55e" stroke="#052e24" stroke-width="2"/>
+    <text x="463" y="394" class="white label">Opened on time at 10:57 AM</text>
+    <text x="463" y="416" class="muted small">Front entrance · Opening activity verified</text>
+    <rect x="966" y="385" width="79" height="28" rx="14" fill="#052e24"/><text x="1005.5" y="403" text-anchor="middle" fill="#86efac" font-size="11" font-weight="700">OBSERVED</text>
+
+    <rect x="363" y="447" width="704" height="71" rx="12" fill="#101a2a" stroke="#243047"/>
+    <image href="daily-summary-thumbs/rush.png" x="376" y="456" width="72" height="53" preserveAspectRatio="xMidYMid slice" clip-path="url(#listThumb2)"/>
+    <rect x="376" y="456" width="72" height="53" rx="8" fill="#020617" opacity=".12"/>
+    <circle cx="412" cy="483" r="10" fill="#020617" opacity=".8"/><path d="M409 478l8 5-8 5z" fill="#f8fafc"/>
+    <text x="463" y="476" class="white label">Lunch rush peaked from 12:08–1:22 PM</text>
+    <text x="463" y="498" class="muted small">Customer traffic was 18% above Tuesday average</text>
+    <rect x="966" y="467" width="79" height="28" rx="14" fill="#172554"/><text x="1005.5" y="485" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="700">OBSERVED</text>
+
+    <rect x="363" y="529" width="704" height="71" rx="12" fill="#1a1720" stroke="#92400e" stroke-opacity=".55"/>
+    <image href="daily-summary-thumbs/counter.png" x="376" y="538" width="72" height="53" preserveAspectRatio="xMidYMid slice" clip-path="url(#listThumb3)"/>
+    <rect x="376" y="538" width="72" height="53" rx="8" fill="#020617" opacity=".12"/>
+    <circle cx="412" cy="565" r="10" fill="#020617" opacity=".8"/><path d="M409 560l8 5-8 5z" fill="#f8fafc"/>
+    <circle cx="441" cy="545" r="5" fill="#f59e0b" stroke="#422006" stroke-width="2"/>
+    <text x="463" y="558" class="white label">Front counter unattended twice — 7 min total</text>
+    <text x="463" y="580" fill="#fbbf24" font-size="12">Longest gap: 4m 12s during lunch rush</text>
+    <rect x="956" y="549" width="89" height="28" rx="14" fill="#422006"/><text x="1000.5" y="567" text-anchor="middle" fill="#fcd34d" font-size="11" font-weight="700">REVIEW</text>
+
+    <rect x="363" y="611" width="704" height="71" rx="12" fill="#101a2a" stroke="#243047"/>
+    <image href="daily-summary-thumbs/cleaning.png" x="376" y="620" width="72" height="53" preserveAspectRatio="xMidYMid slice" clip-path="url(#listThumb4)"/>
+    <rect x="376" y="620" width="72" height="53" rx="8" fill="#020617" opacity=".12"/>
+    <circle cx="412" cy="647" r="10" fill="#020617" opacity=".8"/><path d="M409 642l8 5-8 5z" fill="#f8fafc"/>
+    <circle cx="441" cy="627" r="5" fill="#22c55e" stroke="#052e24" stroke-width="2"/>
+    <text x="463" y="640" class="white label">Dining room cleaning completed after lunch</text>
+    <text x="463" y="662" class="muted small">Cleaning activity observed from 2:06–2:19 PM</text>
+    <rect x="966" y="631" width="79" height="28" rx="14" fill="#052e24"/><text x="1005.5" y="649" text-anchor="middle" fill="#86efac" font-size="11" font-weight="700">OBSERVED</text>
+
+    <rect x="363" y="693" width="704" height="71" rx="12" fill="#21121a" stroke="#9f1239" stroke-opacity=".55"/>
+    <image href="daily-summary-thumbs/closing.png" x="376" y="702" width="72" height="53" preserveAspectRatio="xMidYMid slice" clip-path="url(#listThumb5)"/>
+    <rect x="376" y="702" width="72" height="53" rx="8" fill="#020617" opacity=".18"/>
+    <circle cx="412" cy="729" r="10" fill="#020617" opacity=".8"/><path d="M409 724l8 5-8 5z" fill="#f8fafc"/>
+    <circle cx="441" cy="709" r="5" fill="#fb7185" stroke="#4c0519" stroke-width="2"/>
+    <text x="463" y="722" class="white label">Closing equipment cleaning not observed</text>
+    <text x="463" y="744" fill="#fda4af" font-size="12">Expected between 10:15–10:45 PM · Camera 03</text>
+    <rect x="939" y="713" width="106" height="28" rx="14" fill="#4c0519"/><text x="992" y="731" text-anchor="middle" fill="#fda4af" font-size="11" font-weight="700">NOT OBSERVED</text>
+
+    <!-- timeline -->
+    <text x="363" y="811" class="dim small" font-weight="700" letter-spacing="1.1">OPERATING TIMELINE</text>
+    <line x1="390" y1="857" x2="1038" y2="857" stroke="#334155" stroke-width="3"/>
+    <g font-size="11" text-anchor="middle">
+      <circle cx="390" cy="857" r="8" fill="#22c55e"/><text x="390" y="884" class="muted">Opening</text><text x="390" y="901" class="dim">10:57 AM</text>
+      <circle cx="548" cy="857" r="8" fill="#3b82f6"/><text x="548" y="884" class="muted">Lunch Rush</text><text x="548" y="901" class="dim">12:08 PM</text>
+      <circle cx="706" cy="857" r="8" fill="#8b5cf6"/><text x="706" y="884" class="muted">Delivery</text><text x="706" y="901" class="dim">2:41 PM</text>
+      <circle cx="866" cy="857" r="8" fill="#22c55e"/><text x="866" y="884" class="muted">Cleaning</text><text x="866" y="901" class="dim">2:06 PM</text>
+      <circle cx="1038" cy="857" r="8" fill="#f43f5e"/><text x="1038" y="884" class="muted">Closing</text><text x="1038" y="901" class="dim">10:15 PM</text>
+    </g>
+    <rect x="363" y="923" width="704" height="32" rx="8" fill="#0d1422"/>
+    <circle cx="381" cy="939" r="5" fill="#64748b"/><text x="394" y="944" class="dim" font-size="11">Seltrix distinguishes Observed, Not Observed, and Unknown — every finding is evidence-backed.</text>
+
+    <!-- Right rail -->
+    <rect x="1113" y="271" width="376" height="704" rx="16" fill="#0d1422" stroke="#263248"/>
+    <text x="1137" y="312" class="white" font-size="21" font-weight="730">Owner Actions</text>
+    <text x="1137" y="337" class="muted" font-size="13">The three things worth your attention.</text>
+
+    <!-- action card 1 -->
+    <rect x="1133" y="365" width="336" height="164" rx="13" fill="#111a29" stroke="#334155"/>
+    <image href="daily-summary-thumbs/counter.png" x="1147" y="379" width="116" height="82" preserveAspectRatio="xMidYMid slice" clip-path="url(#actionThumb1)"/>
+    <rect x="1147" y="379" width="116" height="82" rx="8" fill="#020617" opacity=".1"/>
+    <rect x="1154" y="386" width="46" height="16" rx="8" fill="#020617" opacity=".8"/><text x="1177" y="398" text-anchor="middle" fill="#cbd5e1" font-size="9">12:46 PM</text>
+    <text x="1277" y="394" class="white" font-size="14" font-weight="680">Review counter</text><text x="1277" y="413" class="white" font-size="14" font-weight="680">coverage</text>
+    <text x="1277" y="440" fill="#fbbf24" font-size="11">4m 12s gap</text>
+    <rect x="1147" y="477" width="302" height="34" rx="8" fill="#172554" stroke="#3b82f6" stroke-opacity=".6"/><text x="1298" y="499" text-anchor="middle" fill="#bfdbfe" font-size="12" font-weight="700">▶  View Clip</text>
+
+    <!-- action card 2 -->
+    <rect x="1133" y="544" width="336" height="164" rx="13" fill="#111a29" stroke="#334155"/>
+    <image href="daily-summary-thumbs/closing.png" x="1147" y="558" width="116" height="82" preserveAspectRatio="xMidYMid slice" clip-path="url(#actionThumb2)"/>
+    <rect x="1147" y="558" width="116" height="82" rx="8" fill="#020617" opacity=".14"/>
+    <rect x="1154" y="565" width="46" height="16" rx="8" fill="#020617" opacity=".8"/><text x="1177" y="577" text-anchor="middle" fill="#cbd5e1" font-size="9">10:28 PM</text>
+    <text x="1277" y="573" class="white" font-size="14" font-weight="680">Confirm equipment</text><text x="1277" y="592" class="white" font-size="14" font-weight="680">cleaning</text>
+    <text x="1277" y="619" fill="#fda4af" font-size="11">Not observed</text>
+    <rect x="1147" y="656" width="302" height="34" rx="8" fill="#172554" stroke="#3b82f6" stroke-opacity=".6"/><text x="1298" y="678" text-anchor="middle" fill="#bfdbfe" font-size="12" font-weight="700">▶  View Clip</text>
+
+    <!-- action card 3 -->
+    <rect x="1133" y="723" width="336" height="164" rx="13" fill="#111a29" stroke="#334155"/>
+    <image href="daily-summary-thumbs/rush.png" x="1147" y="737" width="116" height="82" preserveAspectRatio="xMidYMid slice" clip-path="url(#actionThumb3)"/>
+    <rect x="1147" y="737" width="116" height="82" rx="8" fill="#020617" opacity=".12"/>
+    <rect x="1154" y="744" width="42" height="16" rx="8" fill="#020617" opacity=".8"/><text x="1175" y="756" text-anchor="middle" fill="#cbd5e1" font-size="9">7:18 PM</text>
+    <text x="1277" y="752" class="white" font-size="14" font-weight="680">View customer</text><text x="1277" y="771" class="white" font-size="14" font-weight="680">incident</text>
+    <text x="1277" y="798" fill="#93c5fd" font-size="11">Needs context</text>
+    <rect x="1147" y="835" width="302" height="34" rx="8" fill="#172554" stroke="#3b82f6" stroke-opacity=".6"/><text x="1298" y="857" text-anchor="middle" fill="#bfdbfe" font-size="12" font-weight="700">▶  View Clip</text>
+
+    <rect x="1133" y="905" width="336" height="50" rx="12" fill="url(#brand)"/>
+    <text x="1301" y="936" text-anchor="middle" fill="white" font-size="13" font-weight="720">Ask a Follow-up Question  →</text>
+  </g>
+</svg>

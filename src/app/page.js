@@ -166,7 +166,7 @@ function PlatformFeatures() {
 /* ── Industry Tabs ── */
 function IndustryTabs({ activeTab, setActiveTab }) {
   const tabs = [
-    { id: 'restaurant', label: 'Restaurants', desc: 'Cash visibility, delivery tracking, void detection' },
+    { id: 'restaurant', label: 'Restaurants', desc: 'Daily summary, cash visibility, delivery tracking' },
     { id: 'retail', label: 'Retail', desc: 'Register monitoring, theft detection, foot traffic' },
     { id: 'warehouse', label: 'Warehouse', desc: 'Loading dock, inventory tracking, after-hours' },
   ]
@@ -204,7 +204,7 @@ function IndustryTabs({ activeTab, setActiveTab }) {
 }
 
 /* ── Use Case Card ── */
-function UseCaseCard({ index, tag, tagColor, title, subtitle, bullets }) {
+function UseCaseCard({ index, visualIndex, tag, tagColor, title, subtitle, bullets }) {
   return (
     <div className="grid md:grid-cols-2 gap-12 items-center py-16 border-b border-white/[0.04] last:border-0">
       {/* Text side */}
@@ -233,7 +233,7 @@ function UseCaseCard({ index, tag, tagColor, title, subtitle, bullets }) {
       {/* Visual side */}
       <div className={index % 2 === 0 ? '' : 'md:order-1'}>
         <div className="rounded-2xl bg-[#0c0c10] border border-white/[0.06] overflow-hidden shadow-2xl shadow-black/30">
-          <ScreenMockup index={index} />
+          <ScreenMockup index={visualIndex ?? index} />
         </div>
         <div className="absolute -inset-4 bg-blue-500/5 rounded-3xl blur-2xl -z-10" />
       </div>
@@ -248,6 +248,7 @@ function ScreenMockup({ index }) {
     '/images/delivery-tracking.png',
     '/images/smart-search.png',
     '/images/void-detection.png',
+    '/images/daily-store-summary.png',
   ]
 
   const labels = [
@@ -255,6 +256,7 @@ function ScreenMockup({ index }) {
     'Delivery Tracking — Pickup Verification',
     'Smart Search — AI Video Search Results',
     'Void Detection — Suspicious Transaction Alert',
+    'Daily Store Summary — Evidence-Backed Restaurant Operations Briefing',
   ]
 
   return (
@@ -271,6 +273,19 @@ function ScreenMockup({ index }) {
 /* ── Restaurant Use Cases ── */
 function RestaurantUseCases() {
   const cases = [
+    {
+      visualIndex: 4,
+      tag: 'Daily Store Summary',
+      tagColor: 'bg-purple-500/20 text-purple-300 border border-purple-500/30',
+      title: 'Know Everything. Be Anywhere.',
+      subtitle: 'Seltrix acts like your most loyal, objective store manager: it watches the operating day and gives you one concise, evidence-backed summary, so you can leave the restaurant without losing the truth of what happened.',
+      bullets: [
+        'Understand opening, rush periods, service coverage, routines, incidents, and closing in under one minute',
+        'See a real thumbnail for every important event and click it to replay the supporting footage',
+        'Every finding is clearly marked Observed, Not Observed, or Unknown — Seltrix never hides uncertainty',
+        'Finish with a short, prioritized owner action list instead of hours of camera review',
+      ],
+    },
     {
       tag: 'Cash Visibility',
       tagColor: 'bg-red-500/20 text-red-400 border border-red-500/30',
