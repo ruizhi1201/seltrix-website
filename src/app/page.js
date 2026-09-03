@@ -79,7 +79,7 @@ function Hero() {
         </div>
 
         <p className="animate-fade-in animate-delay-4 mt-6 text-sm text-zinc-500">
-          $799 one-time · 30-day trial · No credit card required
+          $799 Starter Kit
         </p>
       </div>
     </section>
@@ -514,7 +514,7 @@ function Pricing() {
 
       <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
         <div className="glass-card rounded-2xl p-8 md:p-10 relative">
-          <p className="text-zinc-500 text-sm mb-3">Hardware</p>
+          <p className="text-zinc-500 text-sm mb-3">Starter Kit</p>
           <div className="text-5xl font-bold mb-2">$799</div>
           <p className="text-zinc-500 text-sm mb-8">4 cameras + AI Hub · One-time purchase</p>
           <ul className="space-y-3 mb-10">
@@ -541,7 +541,7 @@ function Pricing() {
           <div className="text-5xl font-bold mb-2">
             $50<span className="text-xl text-zinc-500 font-normal">/mo</span>
           </div>
-          <p className="text-zinc-500 text-sm mb-8">Per location · 30-day free trial</p>
+          <p className="text-zinc-500 text-sm mb-8">Per location</p>
           <ul className="space-y-3 mb-10">
             {['AI event detection & alerts', 'Cash + POS cross-referencing', 'Daily AI report (email)', 'Multi-location dashboard', '30-day video history search'].map((item) => (
               <li key={item} className="flex items-start gap-2.5 text-sm text-zinc-300">
@@ -574,7 +574,7 @@ function CTABanner() {
             Stop watching footage. Start asking questions.
           </h2>
           <p className="text-zinc-400 mb-10 max-w-lg mx-auto">
-            Join 200+ business owners on the waitlist. Early access pricing, 30-day free trial of Premium, no credit card required.
+            Join 200+ business owners on the waitlist. Early access pricing is available for the $799 Starter Kit.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href={JOTFORM}
@@ -586,7 +586,7 @@ function CTABanner() {
             </a>
           </div>
           <p className="mt-6 text-sm text-zinc-500">
-            $799 one-time · Free AI search · 30-day money-back guarantee
+            $799 Starter Kit
           </p>
         </div>
       </div>
