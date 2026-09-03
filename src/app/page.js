@@ -608,15 +608,34 @@ function PreorderModal({ onClose }) {
     address: '',
     installationService: '',
   })
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const updateField = (field) => (event) => {
     setFormData((current) => ({ ...current, [field]: event.target.value }))
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    sessionStorage.setItem('seltrix-preorder', JSON.stringify(formData))
-    window.location.assign(STRIPE_CHECKOUT)
+    setSubmitting(true)
+    setSubmitError('')
+
+    try {
+      const response = await fetch('/api/preorder', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      const result = await response.json()
+
+      if (!response.ok) throw new Error(result.error)
+
+      sessionStorage.setItem('seltrix-preorder', JSON.stringify(formData))
+      window.location.assign(STRIPE_CHECKOUT)
+    } catch (error) {
+      setSubmitError(error.message || 'We could not save your order details. Please try again.')
+      setSubmitting(false)
+    }
   }
 
   const keepFormOpen = (event) => {
@@ -696,8 +715,12 @@ function PreorderModal({ onClose }) {
             After payment, our team will contact you within 24–48 hours to schedule your installation or provide a shipping update.
           </div>
 
-          <button type="submit" className="group flex w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-4 font-semibold text-black transition-all hover:bg-zinc-200">
-            Pay $799 with Stripe
+          {submitError && (
+            <p role="alert" className="rounded-xl border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-300">{submitError}</p>
+          )}
+
+          <button type="submit" disabled={submitting} className="group flex w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-4 font-semibold text-black transition-all hover:bg-zinc-200 disabled:cursor-wait disabled:bg-zinc-300 disabled:text-zinc-600">
+            {submitting ? 'Saving your order…' : 'Pay $799 with Stripe'}
             <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
           </button>
           <p className="text-center text-xs text-zinc-500">You’ll complete your purchase securely on Stripe.</p>
