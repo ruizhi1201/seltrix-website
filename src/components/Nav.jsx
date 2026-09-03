@@ -9,7 +9,7 @@ const navItems = [
   { label: 'FAQ', href: '#faq' },
 ]
 
-export default function Nav() {
+export default function Nav({ onPreorder }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -51,15 +51,16 @@ export default function Nav() {
 
         {/* Desktop CTA */}
         <div className="hidden md:block">
-          <a
-            href="https://form.jotform.com/262158097289167"
+          <button
+            type="button"
+            onClick={onPreorder}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white text-black text-sm font-medium hover:bg-zinc-200 transition-colors"
           >
-            Join Waitlist
+            Pre-order
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
+          </button>
         </div>
 
         {/* Mobile hamburger */}
@@ -92,12 +93,16 @@ export default function Nav() {
                 {item.label}
               </a>
             ))}
-            <a
-              href="https://form.jotform.com/262158097289167"
+            <button
+              type="button"
+              onClick={() => {
+                setMobileOpen(false)
+                onPreorder()
+              }}
               className="block mt-4 px-3 py-2.5 rounded-lg bg-white text-black text-center font-medium hover:bg-zinc-200 transition-colors"
             >
-              Join Waitlist
-            </a>
+              Pre-order
+            </button>
           </div>
         </div>
       )}

@@ -4,32 +4,36 @@ import { useState } from 'react'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
-const JOTFORM = 'https://form.jotform.com/262158097289167'
+const STRIPE_CHECKOUT = 'https://buy.stripe.com/eVq4gy0Iq0nV7Yq0dq2Ry01'
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('restaurant')
+  const [preorderOpen, setPreorderOpen] = useState(false)
+
+  const openPreorder = () => setPreorderOpen(true)
 
   return (
     <>
-      <Nav />
+      <Nav onPreorder={openPreorder} />
       <main>
-        <Hero />
+        <Hero onPreorder={openPreorder} />
         <PlatformFeatures />
         <IndustryTabs activeTab={activeTab} setActiveTab={setActiveTab} />
         {activeTab === 'restaurant' && <RestaurantUseCases />}
         {activeTab === 'retail' && <RetailUseCases />}
         {activeTab === 'warehouse' && <WarehouseUseCases />}
         <HowItWorks />
-        <Pricing />
-        <CTABanner />
+        <Pricing onPreorder={openPreorder} />
+        <CTABanner onPreorder={openPreorder} />
       </main>
       <Footer />
+      {preorderOpen && <PreorderModal onClose={() => setPreorderOpen(false)} />}
     </>
   )
 }
 
 /* ── Hero ── */
-function Hero() {
+function Hero({ onPreorder }) {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -65,13 +69,13 @@ function Hero() {
         </p>
 
         <div className="animate-fade-in animate-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href={JOTFORM}
+          <button type="button" onClick={onPreorder}
             className="group inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-black font-semibold text-base hover:bg-zinc-200 transition-all shadow-lg shadow-white/5">
             Get Early Access
             <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </a>
+          </button>
           <a href="#platform"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-white/10 text-zinc-300 font-medium hover:border-white/20 hover:text-white transition-all">
             See how it works
@@ -499,7 +503,7 @@ function HowItWorks() {
 }
 
 /* ── Pricing ── */
-function Pricing() {
+function Pricing({ onPreorder }) {
   return (
     <section id="pricing" className="max-w-5xl mx-auto px-6 py-24 md:py-32">
       <div className="text-center mb-16">
@@ -527,10 +531,10 @@ function Pricing() {
               </li>
             ))}
           </ul>
-          <a href={JOTFORM}
+          <button type="button" onClick={onPreorder}
             className="block text-center w-full py-3 rounded-xl bg-white text-black font-semibold hover:bg-zinc-200 transition-colors">
-            Join Waitlist
-          </a>
+            Pre-order Starter Kit
+          </button>
         </div>
 
         <div className="glass-card rounded-2xl p-8 md:p-10 relative glow-border">
@@ -552,10 +556,10 @@ function Pricing() {
               </li>
             ))}
           </ul>
-          <a href={JOTFORM}
+          <button type="button" onClick={onPreorder}
             className="block text-center w-full py-3 rounded-xl border border-purple-500/30 text-purple-300 font-semibold hover:border-purple-400/50 hover:text-purple-200 transition-all">
             Get Early Access
-          </a>
+          </button>
         </div>
       </div>
     </section>
@@ -563,7 +567,7 @@ function Pricing() {
 }
 
 /* ── CTA ── */
-function CTABanner() {
+function CTABanner({ onPreorder }) {
   return (
     <section className="max-w-4xl mx-auto px-6 py-24 md:py-32">
       <div className="relative rounded-3xl overflow-hidden">
@@ -577,13 +581,13 @@ function CTABanner() {
             Join 200+ business owners on the waitlist. Early access pricing is available for the $799 Starter Kit.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href={JOTFORM}
+            <button type="button" onClick={onPreorder}
               className="group inline-flex items-center gap-2 px-10 py-4 rounded-xl bg-white text-black font-semibold text-base hover:bg-zinc-200 transition-all shadow-xl shadow-white/5">
-              Join the Waitlist
+              Pre-order Starter Kit
               <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </a>
+            </button>
           </div>
           <p className="mt-6 text-sm text-zinc-500">
             $799 Starter Kit
@@ -591,5 +595,54 @@ function CTABanner() {
         </div>
       </div>
     </section>
+  )
+}
+
+function PreorderModal({ onClose }) {
+  const [industry, setIndustry] = useState('')
+  const [address, setAddress] = useState('')
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    sessionStorage.setItem('seltrix-preorder', JSON.stringify({ industry, address }))
+    window.location.assign(STRIPE_CHECKOUT)
+  }
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="preorder-title">
+      <button type="button" className="absolute inset-0 bg-black/75 backdrop-blur-sm" onClick={onClose} aria-label="Close pre-order form" />
+      <div className="relative w-full max-w-lg rounded-3xl border border-white/10 bg-[#111114] p-6 shadow-2xl sm:p-8">
+        <button type="button" onClick={onClose} className="absolute right-5 top-5 rounded-lg p-2 text-zinc-500 transition-colors hover:bg-white/5 hover:text-white" aria-label="Close">
+          <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+
+        <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-blue-400">$799 Starter Kit</p>
+        <h2 id="preorder-title" className="mb-2 text-3xl font-bold tracking-tight">Pre-order Seltrix</h2>
+        <p className="mb-7 text-sm leading-6 text-zinc-400">Tell us where Seltrix will be installed, then continue to Stripe for secure payment.</p>
+
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div>
+            <label htmlFor="industry" className="mb-2 block text-sm font-medium text-zinc-200">Industry</label>
+            <select id="industry" value={industry} onChange={(event) => setIndustry(event.target.value)} required className="w-full rounded-xl border border-white/10 bg-[#08080a] px-4 py-3.5 text-white outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20">
+              <option value="" disabled>Select your industry</option>
+              <option value="restaurant">Restaurant</option>
+              <option value="retail">Retail</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label htmlFor="installation-address" className="mb-2 block text-sm font-medium text-zinc-200">Installation address</label>
+            <textarea id="installation-address" value={address} onChange={(event) => setAddress(event.target.value)} required rows={3} autoComplete="street-address" placeholder="Street address, city, state, ZIP code" className="w-full resize-none rounded-xl border border-white/10 bg-[#08080a] px-4 py-3.5 text-white placeholder:text-zinc-600 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20" />
+          </div>
+
+          <button type="submit" className="group flex w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-4 font-semibold text-black transition-all hover:bg-zinc-200">
+            Pay $799 with Stripe
+            <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </button>
+          <p className="text-center text-xs text-zinc-500">You’ll complete your purchase securely on Stripe.</p>
+        </form>
+      </div>
+    </div>
   )
 }
