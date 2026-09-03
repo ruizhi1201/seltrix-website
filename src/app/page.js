@@ -621,10 +621,11 @@ function PreorderModal({ onClose }) {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="preorder-title">
-      <button type="button" className="absolute inset-0 bg-black/75 backdrop-blur-sm" onClick={onClose} aria-label="Close pre-order form" />
+      <div className="absolute inset-0 bg-black/75 backdrop-blur-sm" aria-hidden="true" />
       <div className="relative max-h-[calc(100vh-2rem)] w-full max-w-2xl overflow-y-auto rounded-3xl border border-white/10 bg-[#111114] p-6 shadow-2xl sm:p-8">
-        <button type="button" onClick={onClose} className="absolute right-5 top-5 rounded-lg p-2 text-zinc-500 transition-colors hover:bg-white/5 hover:text-white" aria-label="Close">
-          <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+        <button type="button" onClick={onClose} className="absolute right-5 top-5 inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-zinc-400 transition-colors hover:bg-white/5 hover:text-white" aria-label="Go back">
+          <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+          Back
         </button>
 
         <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-blue-400">$799 Starter Kit</p>
