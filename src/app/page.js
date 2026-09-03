@@ -599,41 +599,94 @@ function CTABanner({ onPreorder }) {
 }
 
 function PreorderModal({ onClose }) {
-  const [industry, setIndustry] = useState('')
-  const [address, setAddress] = useState('')
+  const [formData, setFormData] = useState({
+    industry: '',
+    contactName: '',
+    contactPhone: '',
+    contactEmail: '',
+    zipcode: '',
+    address: '',
+    installationService: '',
+  })
+
+  const updateField = (field) => (event) => {
+    setFormData((current) => ({ ...current, [field]: event.target.value }))
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    sessionStorage.setItem('seltrix-preorder', JSON.stringify({ industry, address }))
+    sessionStorage.setItem('seltrix-preorder', JSON.stringify(formData))
     window.location.assign(STRIPE_CHECKOUT)
   }
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true" aria-labelledby="preorder-title">
       <button type="button" className="absolute inset-0 bg-black/75 backdrop-blur-sm" onClick={onClose} aria-label="Close pre-order form" />
-      <div className="relative w-full max-w-lg rounded-3xl border border-white/10 bg-[#111114] p-6 shadow-2xl sm:p-8">
+      <div className="relative max-h-[calc(100vh-2rem)] w-full max-w-2xl overflow-y-auto rounded-3xl border border-white/10 bg-[#111114] p-6 shadow-2xl sm:p-8">
         <button type="button" onClick={onClose} className="absolute right-5 top-5 rounded-lg p-2 text-zinc-500 transition-colors hover:bg-white/5 hover:text-white" aria-label="Close">
           <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
         </button>
 
         <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-blue-400">$799 Starter Kit</p>
         <h2 id="preorder-title" className="mb-2 text-3xl font-bold tracking-tight">Pre-order Seltrix</h2>
-        <p className="mb-7 text-sm leading-6 text-zinc-400">Tell us where Seltrix will be installed, then continue to Stripe for secure payment.</p>
+        <p className="mb-7 text-sm leading-6 text-zinc-400">Tell us about your location and installation preference, then continue to Stripe for secure payment.</p>
 
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
             <label htmlFor="industry" className="mb-2 block text-sm font-medium text-zinc-200">Industry</label>
-            <select id="industry" value={industry} onChange={(event) => setIndustry(event.target.value)} required className="w-full rounded-xl border border-white/10 bg-[#08080a] px-4 py-3.5 text-white outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20">
+            <select id="industry" value={formData.industry} onChange={updateField('industry')} required className="w-full rounded-xl border border-white/10 bg-[#08080a] px-4 py-3.5 text-white outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20">
               <option value="" disabled>Select your industry</option>
-              <option value="restaurant">Restaurant</option>
-              <option value="retail">Retail</option>
-              <option value="other">Other</option>
+              <option value="Restaurant">Restaurant</option>
+              <option value="Retail">Retail</option>
+              <option value="Other">Other</option>
             </select>
           </div>
 
+          <div className="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label htmlFor="contact-name" className="mb-2 block text-sm font-medium text-zinc-200">Contact name</label>
+              <input id="contact-name" value={formData.contactName} onChange={updateField('contactName')} required autoComplete="name" placeholder="Full name" className="w-full rounded-xl border border-white/10 bg-[#08080a] px-4 py-3.5 text-white placeholder:text-zinc-600 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20" />
+            </div>
+            <div>
+              <label htmlFor="contact-phone" className="mb-2 block text-sm font-medium text-zinc-200">Contact phone</label>
+              <input id="contact-phone" type="tel" value={formData.contactPhone} onChange={updateField('contactPhone')} required autoComplete="tel" placeholder="(513) 555-0123" className="w-full rounded-xl border border-white/10 bg-[#08080a] px-4 py-3.5 text-white placeholder:text-zinc-600 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20" />
+            </div>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label htmlFor="contact-email" className="mb-2 block text-sm font-medium text-zinc-200">Contact email</label>
+              <input id="contact-email" type="email" value={formData.contactEmail} onChange={updateField('contactEmail')} required autoComplete="email" placeholder="you@business.com" className="w-full rounded-xl border border-white/10 bg-[#08080a] px-4 py-3.5 text-white placeholder:text-zinc-600 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20" />
+            </div>
+            <div>
+              <label htmlFor="installation-zipcode" className="mb-2 block text-sm font-medium text-zinc-200">Installation ZIP code</label>
+              <input id="installation-zipcode" inputMode="numeric" pattern="[0-9]{5}(-[0-9]{4})?" value={formData.zipcode} onChange={updateField('zipcode')} required autoComplete="postal-code" placeholder="45202" className="w-full rounded-xl border border-white/10 bg-[#08080a] px-4 py-3.5 text-white placeholder:text-zinc-600 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20" />
+            </div>
+          </div>
+
           <div>
-            <label htmlFor="installation-address" className="mb-2 block text-sm font-medium text-zinc-200">Installation address</label>
-            <textarea id="installation-address" value={address} onChange={(event) => setAddress(event.target.value)} required rows={3} autoComplete="street-address" placeholder="Street address, city, state, ZIP code" className="w-full resize-none rounded-xl border border-white/10 bg-[#08080a] px-4 py-3.5 text-white placeholder:text-zinc-600 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20" />
+            <label htmlFor="installation-address" className="mb-2 block text-sm font-medium text-zinc-200">Address <span className="font-normal text-zinc-500">(optional)</span></label>
+            <textarea id="installation-address" value={formData.address} onChange={updateField('address')} rows={2} autoComplete="street-address" placeholder="Street address, city, and state" className="w-full resize-none rounded-xl border border-white/10 bg-[#08080a] px-4 py-3.5 text-white placeholder:text-zinc-600 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20" />
+          </div>
+
+          <fieldset>
+            <legend className="mb-3 block text-sm font-medium text-zinc-200">Installation service</legend>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <label className={`cursor-pointer rounded-xl border p-4 transition ${formData.installationService === 'Self Install' ? 'border-blue-500 bg-blue-500/10' : 'border-white/10 bg-[#08080a] hover:border-white/20'}`}>
+                <input type="radio" name="installation-service" value="Self Install" checked={formData.installationService === 'Self Install'} onChange={updateField('installationService')} required className="sr-only" />
+                <span className="block font-medium text-white">Self Install</span>
+                <span className="mt-1 block text-xs leading-5 text-zinc-500">We’ll ship the Starter Kit with setup instructions.</span>
+              </label>
+              <label className={`cursor-pointer rounded-xl border p-4 transition ${formData.installationService === 'Technician Install — Metro Cincinnati only' ? 'border-blue-500 bg-blue-500/10' : 'border-white/10 bg-[#08080a] hover:border-white/20'}`}>
+                <input type="radio" name="installation-service" value="Technician Install — Metro Cincinnati only" checked={formData.installationService === 'Technician Install — Metro Cincinnati only'} onChange={updateField('installationService')} required className="sr-only" />
+                <span className="block font-medium text-white">Technician Install</span>
+                <span className="mt-1 block text-xs leading-5 text-zinc-500">Currently available only in Metro Cincinnati.</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div className="rounded-xl border border-blue-500/15 bg-blue-500/[0.06] p-4 text-sm leading-6 text-zinc-300">
+            After payment, our team will contact you within 24–48 hours to schedule your installation or provide a shipping update.
           </div>
 
           <button type="submit" className="group flex w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-4 font-semibold text-black transition-all hover:bg-zinc-200">
